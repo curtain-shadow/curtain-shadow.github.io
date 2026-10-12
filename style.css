@@ -142,6 +142,19 @@ header.page-head { padding: 48px 0 8px; }
 }
 .page-head .gh a:hover { border-color: var(--accent); text-decoration: none; }
 
+/* ===== 详情页主题横幅 ===== */
+.banner { margin: 6px auto 0; max-width: 960px; padding: 0 24px; }
+.banner img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px;
+  border: 1px solid var(--border); display: block; }
+
+/* ===== 首页分区横幅 / 配图 ===== */
+.sec-banner { margin-bottom: 22px; }
+.sec-banner img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 12px;
+  border: 1px solid var(--border); display: block; }
+.sec-viz { margin-top: 24px; }
+.sec-viz img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px;
+  border: 1px solid var(--border); display: block; }
+
 /* ===== Section ===== */
 section { padding: 36px 0; }
 section > .wrap { border-top: 1px solid var(--border); padding-top: 36px; }
