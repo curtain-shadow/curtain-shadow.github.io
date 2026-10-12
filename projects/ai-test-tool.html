@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>AI 辅助测试用例生成器 · 黄子健</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a class="back" href="../index.html">← 返回主页</a>
+    <div class="links">
+      <span class="hide-sm" style="color:var(--text-muted);font-size:14px">AI 测试工具</span>
+      <button id="theme-toggle" aria-label="切换深浅色" title="切换深浅色">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumb">项目 / 大模型应用</div>
+    <h1>AI 辅助测试用例生成器</h1>
+    <span class="badge">大模型应用 / 软件测试</span>
+    <p class="desc">输入自然语言功能需求，DeepSeek 自动生成覆盖功能 / 边界 / 异常 / 性能四类场景的结构化测试用例，支持导出 Markdown / JSON，供测试工程师直接使用。</p>
+    <div class="stack">
+      <span class="t">FastAPI</span><span class="t">DeepSeek</span><span class="t">Prompt 工程</span>
+      <span class="t">JSON 输出模式</span><span class="t">原生前端</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">01</span>核心亮点</h2>
+    <ul class="highlights">
+      <li>结构化 Prompt 约束固定 JSON 字段，LLM 输出可稳定解析</li>
+      <li>四类场景覆盖：功能 / 边界 / 异常 / 性能，用例字段规范统一</li>
+      <li>一键导出 Markdown / JSON，直接进入测试流程</li>
+      <li>容错解析：剥离代码块、字段补全，输出健壮</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">02</span>生成链路</h2>
+    <p class="lead">从需求到用例（示意）：</p>
+    <div class="flow">
+      <span class="node"><b>功能需求</b><br/>自然语言输入</span><span class="arrow">→</span>
+      <span class="node"><b>结构化 Prompt</b><br/>约束 JSON 字段</span><span class="arrow">→</span>
+      <span class="node"><b>DeepSeek</b><br/>JSON 输出模式</span><span class="arrow">→</span>
+      <span class="node"><b>用例解析</b><br/>四类场景</span><span class="arrow">→</span>
+      <span class="node"><b>导出</b><br/>Markdown / JSON</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">03</span>用例示例</h2>
+    <p class="lead">以「用户登录」需求生成的用例片段：</p>
+    <table class="tbl">
+      <thead>
+        <tr><th>ID</th><th>类别</th><th>测试步骤</th><th>预期结果</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>TC001</td><td>功能</td><td>输入正确账号密码，点击登录</td><td>登录成功并跳转首页</td></tr>
+        <tr><td>TC002</td><td>边界</td><td>密码输入最大长度（64 位）</td><td>正常提交，无截断 / 报错</td></tr>
+        <tr><td>TC003</td><td>异常</td><td>输入错误密码</td><td>提示密码错误，不进入系统</td></tr>
+        <tr><td>TC004</td><td>性能</td><td>100 并发同时登录</td><td>响应时间 ≤ 2s，无失败</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p><a href="../index.html">← 返回主页</a>　·　黄子健 · 智能科学与技术 · 2027 届</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

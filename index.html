@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="description" content="黄子健 · 智能科学与技术 · 个人技术主页" />
+<title>黄子健 · 个人主页</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a class="logo" href="#top">黄子健</a>
+    <div class="links">
+      <a href="#about">简介</a>
+      <a href="#skills">技能</a>
+      <a href="#projects">项目</a>
+      <button id="theme-toggle" aria-label="切换深浅色" title="切换深浅色">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg"><img src="assets/hero.jpg" alt="科技感抽象插画横幅" /></div>
+  <div class="wrap">
+    <h1>黄子健</h1>
+    <div class="role">智能科学与技术 · <b>2027 届本科</b> · 重庆邮电大学人工智能学院</div>
+    <div class="contact">
+      <span>📍 重庆 → 成都</span>
+      <span>📱 13075436677</span>
+      <span>✉️ 718942662@qq.com</span>
+    </div>
+    <p class="intro">
+      主投<b>后端开发</b>，同时覆盖算法/机器学习、前端/全栈、计算机视觉、NLP、数据挖掘与大模型应用。
+      具备从 Web 全栈到深度学习、从大模型检索增强（RAG）到端侧/数字电路的完整工程履历，
+      用数据说话、以项目证明。
+    </p>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2><span class="num">01</span>关于</h2>
+    <div class="skill-group">
+      <div class="label">求职意向</div>
+      <div class="tags">
+        <span class="tag accent">后端开发（主投）</span>
+        <span class="tag">算法 / 机器学习</span>
+        <span class="tag">前端 / 全栈</span>
+        <span class="tag">计算机视觉 / 多模态</span>
+        <span class="tag">NLP</span>
+        <span class="tag">数据挖掘</span>
+        <span class="tag">大模型应用</span>
+        <span class="tag">移动端 / AI 端侧</span>
+      </div>
+    </div>
+    <div class="skill-group" style="margin-bottom:0">
+      <div class="label">一句话定位</div>
+      <p style="font-size:14.5px;color:var(--text-muted)">
+        以 Python 为轴、全栈与深度学习双线并进，长期用 AI 辅助开发提效；
+        项目均走通「数据 → 模型/系统 → 部署 → 量化评估」完整闭环，可直接对标工业级追问。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2><span class="num">02</span>技能</h2>
+    <div class="skill-group">
+      <div class="label">编程语言</div>
+      <div class="tags">
+        <span class="tag accent">Python</span><span class="tag accent">C++</span>
+        <span class="tag">Verilog</span><span class="tag">HTML / CSS / JavaScript / TypeScript</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="label">框架 / 库</div>
+      <div class="tags">
+        <span class="tag">Django + DRF</span><span class="tag">PyTorch</span>
+        <span class="tag">scikit-learn</span><span class="tag">XGBoost</span>
+        <span class="tag">React + Vite</span><span class="tag">CLIP / Transformers</span>
+        <span class="tag">对比学习（SimCLR）</span><span class="tag">Gradio / Flask</span>
+        <span class="tag">pandas / numpy</span><span class="tag">FAISS / Milvus</span>
+        <span class="tag">BM25 / 重排</span><span class="tag">FastAPI</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="label">工具 / 平台</div>
+      <div class="tags">
+        <span class="tag">Git</span><span class="tag">Linux</span>
+        <span class="tag">Quartus II + ModelSim</span><span class="tag accent">AI 辅助开发（Claude Code / Copilot）</span>
+      </div>
+    </div>
+    <div class="skill-group" style="margin-bottom:0">
+      <div class="label">学习中 / 规划中</div>
+      <div class="tags">
+        <span class="tag muted">Java · Spring Boot</span>
+        <span class="tag muted">Android · Kotlin · 端侧 AI</span>
+        <span class="tag muted">小程序（Taro）</span>
+        <span class="tag muted">推荐系统</span>
+        <span class="tag muted">大数据（Flink / Spark）</span>
+        <span class="tag muted">系统底层（Linux 内核 / C++ 网络 / Docker）</span>
+        <span class="tag muted">数字 IC（UART / 异步 FIFO）</span>
+        <span class="tag muted">密码 / 安全</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2><span class="num">03</span>项目</h2>
+    <div class="projects">
+
+      <div class="proj">
+        <a class="thumb" href="projects/rag.html"><img src="assets/rag.jpg" alt="深度 RAG 知识库问答系统" loading="lazy"></a>
+        <div class="head">
+          <h3><a class="title" href="projects/rag.html">深度 RAG 知识库问答系统</a></h3>
+          <span class="badge">大模型 / 检索增强</span>
+        </div>
+        <p class="desc">对标工业级的检索增强生成系统，走通「解析 → 父子分块 → 混合检索 → 重排 → 带引用生成 → 流式服务」完整链路。</p>
+        <div class="stack">
+          <span class="t">Python</span><span class="t">FastAPI + SSE</span><span class="t">BGE-M3</span>
+          <span class="t">自实现 BM25</span><span class="t">RRF</span><span class="t">Cross-Encoder 重排</span>
+          <span class="t">FAISS / Milvus</span><span class="t">DeepSeek</span>
+        </div>
+        <div class="metric">
+          <span class="m">Hit@1 80% · Hit@3 100%</span><span class="m">重排 +15pp</span><span class="m">检索 ~100ms</span>
+        </div>
+        <p class="goto">→ <a href="projects/rag.html">查看详情与可视化结果</a></p>
+      </div>
+
+      <div class="proj">
+        <a class="thumb" href="projects/agent.html"><img src="assets/agent.jpg" alt="智能客服多智能体 Agent" loading="lazy"></a>
+        <div class="head">
+          <h3><a class="title" href="projects/agent.html">智能客服多智能体 Agent</a></h3>
+          <span class="badge">大模型 / 多智能体</span>
+        </div>
+        <p class="desc">LangGraph 编排的客服多智能体系统：意图路由 → 工具调用（Function Calling）→ 生成回答，复用深度 RAG 基础设施，核心链路已通、业务工具迭代中。</p>
+        <div class="stack">
+          <span class="t">LangGraph</span><span class="t">Function Calling</span><span class="t">FastAPI + SSE</span>
+          <span class="t">多模型降级</span><span class="t">JWT</span><span class="t">Vue3</span>
+        </div>
+        <div class="metric">
+          <span class="m">复用 RAG 60–70%</span><span class="m">3 节点工作流</span>
+        </div>
+        <p class="goto">→ <a href="projects/agent.html">查看详情与可视化结果</a></p>
+      </div>
+
+      <div class="proj">
+        <a class="thumb" href="projects/ai-test-tool.html"><img src="assets/ai-test.jpg" alt="AI 辅助测试用例生成器" loading="lazy"></a>
+        <div class="head">
+          <h3><a class="title" href="projects/ai-test-tool.html">AI 辅助测试用例生成器</a></h3>
+          <span class="badge">大模型应用 / 软件测试</span>
+        </div>
+        <p class="desc">输入功能需求，DeepSeek 自动生成覆盖功能 / 边界 / 异常 / 性能四类场景的结构化测试用例，支持导出 Markdown / JSON。</p>
+        <div class="stack">
+          <span class="t">FastAPI</span><span class="t">DeepSeek</span><span class="t">Prompt 工程</span>
+          <span class="t">JSON 输出模式</span><span class="t">原生前端</span>
+        </div>
+        <div class="metric">
+          <span class="m">4 类场景</span><span class="m">Markdown / JSON 导出</span>
+        </div>
+        <p class="goto">→ <a href="projects/ai-test-tool.html">查看详情与可视化结果</a></p>
+      </div>
+
+      <div class="proj">
+        <a class="thumb" href="projects/wenchengtang.html"><img src="assets/wenchengtang.jpg" alt="纹承堂 —— 中国传统纹样数字图书馆" loading="lazy"></a>
+        <div class="head">
+          <h3><a class="title" href="projects/wenchengtang.html">纹承堂 —— 中国传统纹样数字图书馆</a></h3>
+          <span class="badge">Django 全栈</span>
+        </div>
+        <p class="desc">纹样数字化展示与检索平台，含分类、时间线、搜索、设计素材、社区问答五大模块，完整的全栈 Web 项目。</p>
+        <div class="stack">
+          <span class="t">Django</span><span class="t">Django REST Framework</span><span class="t">MySQL</span>
+          <span class="t">REST API</span><span class="t">用户认证</span><span class="t">分页过滤</span>
+        </div>
+        <div class="metric">
+          <span class="m">5 大功能模块</span><span class="m">5 个 app 解耦</span>
+        </div>
+        <p class="goto">→ <a href="projects/wenchengtang.html">查看详情与可视化结果</a></p>
+      </div>
+
+      <div class="proj">
+        <a class="thumb" href="projects/clustering.html"><img src="assets/clustering.jpg" alt="缺失视图聚类对齐（自监督对比学习）" loading="lazy"></a>
+        <div class="head">
+          <h3><a class="title" href="projects/clustering.html">缺失视图聚类对齐（自监督对比学习）</a></h3>
+          <span class="badge">计算机视觉 / 表示学习</span>
+        </div>
+        <p class="desc">基于 SimCLR / NT-Xent 与视图掩码的多视图聚类系统，研究缺失视图下的鲁棒聚类与表示学习。</p>
+        <div class="stack">
+          <span class="t">PyTorch</span><span class="t">SimCLR</span><span class="t">NT-Xent</span>
+          <span class="t">ResNet + HOG</span><span class="t">K-means</span><span class="t">UMAP</span>
+        </div>
+        <div class="metric">
+          <span class="m">完整训练 ACC 93.7%</span><span class="m">较基线 +12.3%</span>
+        </div>
+        <p class="goto">→ <a href="projects/clustering.html">查看详情与可视化结果</a></p>
+      </div>
+
+      <div class="proj">
+        <a class="thumb" href="projects/clip.html"><img src="assets/clip.jpg" alt="跨模态语义聚类与概念发现（CLIP + LLM）" loading="lazy"></a>
+        <div class="head">
+          <h3><a class="title" href="projects/clip.html">跨模态语义聚类与概念发现（CLIP + LLM）</a></h3>
+          <span class="badge">多模态 / 大模型</span>
+        </div>
+        <p class="desc">用 CLIP 把图像和文本映射到统一语义空间，融合 + 聚类自动发现语义类别，再由 GPT / TF-IDF 生成可读概念标签。</p>
+        <div class="stack">
+          <span class="t">CLIP</span><span class="t">谱聚类 / K-means</span><span class="t">GPT 标签生成</span>
+          <span class="t">TF-IDF</span><span class="t">UMAP</span><span class="t">Flickr30k</span>
+        </div>
+        <div class="metric">
+          <span class="m">ACC ≈ 0.68</span><span class="m">NMI ≈ 0.73</span>
+        </div>
+        <p class="goto">→ <a href="projects/clip.html">查看详情与可视化结果</a></p>
+      </div>
+
+      <div class="proj">
+        <a class="thumb" href="projects/traffic.html"><img src="assets/traffic.jpg" alt="基于机器学习的恶意网络流量检测" loading="lazy"></a>
+        <div class="head">
+          <h3><a class="title" href="projects/traffic.html">基于机器学习的恶意网络流量检测</a></h3>
+          <span class="badge">机器学习 / 网络安全</span>
+        </div>
+        <p class="desc">基于 UNSW-NB15 数据集的网络流量恶意行为二分类检测，含特征工程、模型训练、Web 部署的完整 ML 流水线。</p>
+        <div class="stack">
+          <span class="t">RandomForest</span><span class="t">XGBoost</span><span class="t">scikit-learn</span>
+          <span class="t">特征工程</span><span class="t">交叉验证</span><span class="t">Gradio</span>
+        </div>
+        <div class="metric">
+          <span class="m">Accuracy ≈ 92%</span><span class="m">F1 ≈ 0.90</span>
+        </div>
+        <p class="goto">→ <a href="projects/traffic.html">查看详情与可视化结果</a></p>
+      </div>
+
+      <div class="proj">
+        <a class="thumb" href="projects/game.html"><img src="assets/game.jpg" alt="游戏采集与打包工具" loading="lazy"></a>
+        <div class="head">
+          <h3><a class="title" href="projects/game.html">游戏采集与打包工具</a></h3>
+          <span class="badge">Python 自动化</span>
+        </div>
+        <p class="desc">批量采集 30 款网页游戏并自动化打包为可离线运行的交付包，覆盖多来源抓取、去重与体积优化。</p>
+        <div class="stack">
+          <span class="t">GitHub API</span><span class="t">archive.org</span><span class="t">Ruffle</span>
+          <span class="t">内容哈希去重</span><span class="t">zipfile</span>
+        </div>
+        <div class="metric">
+          <span class="m">30 款游戏</span><span class="m">体积优化 -40%</span>
+        </div>
+        <p class="goto">→ <a href="projects/game.html">查看详情与可视化结果</a></p>
+      </div>
+
+      <div class="proj">
+        <a class="thumb" href="projects/react.html"><img src="assets/react.jpg" alt="智联招聘 AI 创新赛（React 前端）" loading="lazy"></a>
+        <div class="head">
+          <h3><a class="title" href="projects/react.html">智联招聘 AI 创新赛（React 前端）</a></h3>
+          <span class="badge">前端工程化</span>
+        </div>
+        <p class="desc">React + Vite + TypeScript 构建的 AI 应用前端，组件化开发与工程化配置。</p>
+        <div class="stack">
+          <span class="t">React</span><span class="t">TypeScript</span><span class="t">Vite</span><span class="t">ESLint</span>
+        </div>
+        <div class="metric">
+          <span class="m">React + TS + Vite</span>
+        </div>
+        <p class="goto">→ <a href="projects/react.html">查看详情与可视化结果</a></p>
+      </div>
+
+      <div class="proj">
+        <a class="thumb" href="projects/mnist.html"><img src="assets/mnist.jpg" alt="MNIST 手写数字识别" loading="lazy"></a>
+        <div class="head">
+          <h3><a class="title" href="projects/mnist.html">MNIST 手写数字识别</a></h3>
+          <span class="badge">深度学习</span>
+        </div>
+        <p class="desc">MLP 实现 MNIST 手写数字识别，含手动实现反向传播以深入理解梯度，混淆矩阵评估。</p>
+        <div class="stack">
+          <span class="t">PyTorch</span><span class="t">MLP</span><span class="t">反向传播</span><span class="t">混淆矩阵</span>
+        </div>
+        <div class="metric">
+          <span class="m">准确率 ≈ 98%</span>
+        </div>
+        <p class="goto">→ <a href="projects/mnist.html">查看详情与可视化结果</a></p>
+      </div>
+
+      <div class="proj">
+        <a class="thumb" href="projects/fpga.html"><img src="assets/fpga.jpg" alt="基于 FPGA 的分频器设计" loading="lazy"></a>
+        <div class="head">
+          <h3><a class="title" href="projects/fpga.html">基于 FPGA 的分频器设计</a></h3>
+          <span class="badge">数字电路 / Verilog</span>
+        </div>
+        <p class="desc">100 分频电路，500Hz 分频为 5Hz / 1Hz 多档，含频率选择逻辑与 RTL 时序仿真。</p>
+        <div class="stack">
+          <span class="t">Verilog</span><span class="t">Quartus II</span><span class="t">ModelSim</span><span class="t">RTL</span>
+        </div>
+        <div class="metric">
+          <span class="m">500Hz → 5Hz / 1Hz</span>
+        </div>
+        <p class="goto">→ <a href="projects/fpga.html">查看详情与可视化结果</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p>黄子健 · 智能科学与技术 · 2027 届 · 重庆邮电大学</p>
+    <div class="links">
+      <span>📱 13075436677</span>
+      <span>✉️ 718942662@qq.com</span>
+      <span>📍 重庆 → 成都</span>
+    </div>
+    <p style="margin-top:12px">© 2026 黄子健</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

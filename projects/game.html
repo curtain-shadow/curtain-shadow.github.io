@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>游戏采集与打包工具 · 黄子健</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a class="back" href="../index.html">← 返回主页</a>
+    <div class="links">
+      <span class="hide-sm" style="color:var(--text-muted);font-size:14px">游戏采集工具</span>
+      <button id="theme-toggle" aria-label="切换深浅色" title="切换深浅色">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumb">项目 / Python 自动化</div>
+    <h1>游戏采集与打包工具</h1>
+    <span class="badge">Python 自动化</span>
+    <p class="desc">批量采集 30 款网页游戏并自动化打包为可离线运行的交付包，覆盖多来源抓取、内容哈希去重与体积优化。</p>
+    <div class="stack">
+      <span class="t">GitHub API</span><span class="t">archive.org</span><span class="t">Ruffle</span>
+      <span class="t">内容哈希去重</span><span class="t">zipfile</span><span class="t">http.server</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">01</span>核心亮点</h2>
+    <ul class="highlights">
+      <li>多来源（GitHub / archive.org）资源自动抓取 + 文件完整性校验</li>
+      <li>内容哈希去重 + 全局连续编号，30 个游戏交付一致可复现</li>
+      <li>兼容 Unity WebGL 两种目录结构（旧 asm.js / 新 Build 结构）</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">02</span>量化结果</h2>
+    <div class="stats">
+      <div class="stat"><div class="v">30</div><div class="k">款游戏交付</div></div>
+      <div class="stat"><div class="v">-40<span class="u">%</span></div><div class="k">交付包体积优化</div></div>
+    </div>
+
+    <figure class="viz">
+      <figcaption>交付包体积优化（替换大体积游戏）</figcaption>
+      <svg viewBox="0 0 640 150" role="img" aria-label="交付包体积优化对比">
+        <text x="90" y="38" text-anchor="end" font-size="13" fill="var(--ink-2)">优化前</text>
+        <rect x="100" y="20" width="500" height="30" rx="4" fill="var(--s1)"><title>优化前 325 MB</title></rect>
+        <text x="610" y="41" font-size="12.5" fill="var(--ink)">325 MB</text>
+        <text x="90" y="98" text-anchor="end" font-size="13" fill="var(--ink-2)">优化后</text>
+        <rect x="100" y="80" width="301.5" height="30" rx="4" fill="var(--s3)"><title>优化后 196 MB</title></rect>
+        <text x="409.5" y="101" font-size="12.5" fill="var(--ink)">196 MB</text>
+      </svg>
+      <div class="legend">
+        <span class="li"><span class="sw" style="background:var(--s1)"></span>优化前</span>
+        <span class="li"><span class="sw" style="background:var(--s3)"></span>优化后</span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">03</span>游戏构成</h2>
+    <p class="lead">30 款游戏按技术形态分布：</p>
+    <div class="stats">
+      <div class="stat"><div class="v">10</div><div class="k">H5 游戏</div></div>
+      <div class="stat"><div class="v">10</div><div class="k">Flash（Ruffle）</div></div>
+      <div class="stat"><div class="v">10</div><div class="k">Unity WebGL</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p><a href="../index.html">← 返回主页</a>　·　黄子健 · 智能科学与技术 · 2027 届</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

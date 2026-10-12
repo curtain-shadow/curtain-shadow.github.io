@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>缺失视图聚类对齐 · 黄子健</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a class="back" href="../index.html">← 返回主页</a>
+    <div class="links">
+      <span class="hide-sm" style="color:var(--text-muted);font-size:14px">缺失视图聚类</span>
+      <button id="theme-toggle" aria-label="切换深浅色" title="切换深浅色">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumb">项目 / 计算机视觉</div>
+    <h1>缺失视图聚类对齐（自监督对比学习）</h1>
+    <span class="badge">计算机视觉 / 表示学习</span>
+    <p class="desc">基于自监督对比学习（SimCLR / NT-Xent）+ 视图掩码的多视图聚类系统，研究缺失视图下的鲁棒聚类与表示学习——无需标签，通过对比损失学习区分性表示。</p>
+    <div class="stack">
+      <span class="t">PyTorch</span><span class="t">SimCLR</span><span class="t">NT-Xent</span>
+      <span class="t">ResNet + HOG 双视图</span><span class="t">K-means</span><span class="t">UMAP</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">01</span>核心亮点</h2>
+    <ul class="highlights">
+      <li>采用自监督对比学习范式，无需标签，通过对比损失学习区分性表示</li>
+      <li>双视图特征（ResNet 深度特征 + HOG 手工特征）融合，实现互补表示</li>
+      <li>视图掩码模拟缺失 / 噪声场景，验证信息缺失下的鲁棒性</li>
+      <li>3 种子 × 150 epochs，lr=5e-4，ACC / NMI（匈牙利对齐）多指标评估</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">02</span>量化结果</h2>
+    <p class="lead">不同视图缺失率下，缺失视图训练相对完整训练的聚类准确率（ACC）提升。</p>
+    <figure class="viz">
+      <figcaption>缺失率 × 聚类准确率对比（基线 vs 缺失训练）</figcaption>
+      <svg viewBox="0 0 640 360" role="img" aria-label="缺失视图聚类准确率对比柱状图">
+        <line x1="48" y1="320" x2="632" y2="320" stroke="var(--axis)" stroke-width="1.5"/>
+        <line x1="48" y1="263.2" x2="632" y2="263.2" stroke="var(--grid)"/>
+        <line x1="48" y1="206.4" x2="632" y2="206.4" stroke="var(--grid)"/>
+        <line x1="48" y1="149.6" x2="632" y2="149.6" stroke="var(--grid)"/>
+        <line x1="48" y1="92.8" x2="632" y2="92.8" stroke="var(--grid)"/>
+        <line x1="48" y1="36" x2="632" y2="36" stroke="var(--grid)"/>
+        <text x="40" y="324" text-anchor="end" font-size="12" fill="var(--muted)">0</text>
+        <text x="40" y="267.2" text-anchor="end" font-size="12" fill="var(--muted)">20</text>
+        <text x="40" y="210.4" text-anchor="end" font-size="12" fill="var(--muted)">40</text>
+        <text x="40" y="153.6" text-anchor="end" font-size="12" fill="var(--muted)">60</text>
+        <text x="40" y="96.8" text-anchor="end" font-size="12" fill="var(--muted)">80</text>
+        <text x="40" y="40" text-anchor="end" font-size="12" fill="var(--muted)">100</text>
+
+        <!-- 0% 缺失：81.5 / 93.7 -->
+        <rect x="93"  y="88.5"  width="50" height="231.5" rx="4" fill="var(--s1)"><title>0% 缺失 · 基线 = 81.5%</title></rect>
+        <rect x="157" y="53.9"  width="50" height="266.1" rx="4" fill="var(--s2)"><title>0% 缺失 · 缺失训练 = 93.7%</title></rect>
+        <text x="118" y="80.5" text-anchor="middle" font-size="11.5" fill="var(--ink)">81.5</text>
+        <text x="182" y="45.9" text-anchor="middle" font-size="11.5" fill="var(--ink)">93.7</text>
+        <!-- 40% 缺失：63.2 / 73.0 -->
+        <rect x="263" y="140.5" width="50" height="179.5" rx="4" fill="var(--s1)"><title>40% 缺失 · 基线 = 63.2%</title></rect>
+        <rect x="327" y="112.7" width="50" height="207.3" rx="4" fill="var(--s2)"><title>40% 缺失 · 缺失训练 = 73.0%</title></rect>
+        <text x="288" y="132.5" text-anchor="middle" font-size="11.5" fill="var(--ink)">63.2</text>
+        <text x="352" y="104.7" text-anchor="middle" font-size="11.5" fill="var(--ink)">73.0</text>
+        <!-- 90% 缺失：20.8 / 24.1 -->
+        <rect x="433" y="260.9" width="50" height="59.1" rx="4" fill="var(--s1)"><title>90% 缺失 · 基线 = 20.8%</title></rect>
+        <rect x="497" y="251.6" width="50" height="68.4" rx="4" fill="var(--s2)"><title>90% 缺失 · 缺失训练 = 24.1%</title></rect>
+        <text x="458" y="252.9" text-anchor="middle" font-size="11.5" fill="var(--ink)">20.8</text>
+        <text x="522" y="243.6" text-anchor="middle" font-size="11.5" fill="var(--ink)">24.1</text>
+
+        <text x="118" y="340" text-anchor="middle" font-size="12.5" fill="var(--ink-2)">0% 缺失</text>
+        <text x="288" y="340" text-anchor="middle" font-size="12.5" fill="var(--ink-2)">40% 缺失</text>
+        <text x="458" y="340" text-anchor="middle" font-size="12.5" fill="var(--ink-2)">90% 缺失</text>
+      </svg>
+      <div class="legend">
+        <span class="li"><span class="sw" style="background:var(--s1)"></span>基线（完整训练）</span>
+        <span class="li"><span class="sw" style="background:var(--s2)"></span>缺失训练（本方法）</span>
+      </div>
+    </figure>
+
+    <table class="tbl">
+      <thead><tr><th>缺失率</th><th>完整训练 ACC</th><th>缺失训练 ACC</th><th>增益</th></tr></thead>
+      <tbody>
+        <tr><td>0%</td><td>81.5%</td><td>93.7%</td><td>+12.3%</td></tr>
+        <tr><td>40%</td><td>63.2%</td><td>73.0%</td><td>+9.8%</td></tr>
+        <tr><td>90%</td><td>20.8%</td><td>24.1%</td><td>+3.3%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">03</span>方法链路</h2>
+    <p class="lead">训练与评估流程（架构示意）：</p>
+    <div class="flow">
+      <span class="node"><b>MNIST</b><br/>ResNet / HOG 双视图</span><span class="arrow">→</span>
+      <span class="node"><b>视图掩码</b><br/>模拟缺失</span><span class="arrow">→</span>
+      <span class="node"><b>投影头 + NT-Xent</b><br/>对比损失</span><span class="arrow">→</span>
+      <span class="node"><b>K-means 聚类</b></span><span class="arrow">→</span>
+      <span class="node"><b>ACC / NMI</b><br/>匈牙利对齐 · UMAP 可视化</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p><a href="../index.html">← 返回主页</a>　·　黄子健 · 智能科学与技术 · 2027 届</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

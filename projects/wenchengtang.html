@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>纹承堂 · 黄子健</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a class="back" href="../index.html">← 返回主页</a>
+    <div class="links">
+      <span class="hide-sm" style="color:var(--text-muted);font-size:14px">纹承堂</span>
+      <button id="theme-toggle" aria-label="切换深浅色" title="切换深浅色">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumb">项目 / Web 全栈</div>
+    <h1>纹承堂 —— 中国传统纹样数字图书馆</h1>
+    <span class="badge">Django 全栈</span>
+    <p class="desc">中国传统纹样数字化展示与检索平台，含纹样分类、朝代时间线、关键词搜索、设计素材、社区问答五大模块，是完整的全栈 Web 项目。</p>
+    <div class="stack">
+      <span class="t">Django</span><span class="t">Django REST Framework</span><span class="t">MySQL</span>
+      <span class="t">REST API</span><span class="t">自定义用户认证</span><span class="t">分页过滤</span><span class="t">AJAX</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">01</span>核心亮点</h2>
+    <ul class="highlights">
+      <li>5 个 Django app 解耦，体现后端工程化组织能力</li>
+      <li>自定义用户认证后端 + 验证码注册登录，序列化器 + 分页过滤实现 REST API</li>
+      <li>关键词搜索 + 纹样分类 + 朝代时间线多维度检索</li>
+      <li>纹样图片库高清 / 缩略图两级管理，模板渲染 + 静态资源管理</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">02</span>系统架构</h2>
+    <p class="lead">多应用拆分（5 个 app 解耦），架构示意：</p>
+    <div class="flow">
+      <span class="node">浏览器<br/><span style="color:var(--text-muted)">模板渲染 / AJAX</span></span><span class="arrow">→</span>
+      <span class="node"><b>Django 请求路由</b><br/><span style="color:var(--text-muted)">URLConf</span></span><span class="arrow">→</span>
+      <span class="node"><b>5 个 app</b><br/><span style="color:var(--text-muted)">patterns · accounts · design · search · community</span></span><span class="arrow">→</span>
+      <span class="node"><b>MySQL</b></span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">03</span>功能模块</h2>
+    <div class="stats">
+      <div class="stat"><div class="v" style="font-size:20px">纹样分类</div><div class="k">按类别浏览纹样</div></div>
+      <div class="stat"><div class="v" style="font-size:20px">朝代时间线</div><div class="k">按历史时期检索</div></div>
+      <div class="stat"><div class="v" style="font-size:20px">关键词搜索</div><div class="k">全文检索纹样</div></div>
+      <div class="stat"><div class="v" style="font-size:20px">设计素材</div><div class="k">素材下载与使用</div></div>
+      <div class="stat"><div class="v" style="font-size:20px">社区问答</div><div class="k">用户互动交流</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p><a href="../index.html">← 返回主页</a>　·　黄子健 · 智能科学与技术 · 2027 届</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

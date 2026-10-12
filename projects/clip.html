@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>跨模态语义聚类与概念发现 · 黄子健</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a class="back" href="../index.html">← 返回主页</a>
+    <div class="links">
+      <span class="hide-sm" style="color:var(--text-muted);font-size:14px">跨模态聚类</span>
+      <button id="theme-toggle" aria-label="切换深浅色" title="切换深浅色">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumb">项目 / 多模态</div>
+    <h1>跨模态语义聚类与概念发现（CLIP + LLM）</h1>
+    <span class="badge">多模态 / 大模型</span>
+    <p class="desc">利用 CLIP 将图像和文本映射到统一语义空间，通过融合策略 + 聚类算法自动发现语义类别，再由 GPT / TF-IDF 生成可读概念标签。</p>
+    <div class="stack">
+      <span class="t">CLIP</span><span class="t">K-means / 谱聚类</span><span class="t">GPT 标签生成</span>
+      <span class="t">TF-IDF</span><span class="t">UMAP 可视化</span><span class="t">Flickr30k</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">01</span>核心亮点</h2>
+    <ul class="highlights">
+      <li>图文对 → CLIP 统一语义空间映射，实现跨模态对齐</li>
+      <li>多融合策略 × 多聚类方法 × 多 K 值的对比实验（ACC / NMI 评估）</li>
+      <li>LLM 自动生成聚类语义标签，无 API 时降级 TF-IDF（容错设计）</li>
+      <li>UMAP 降维 + 柱状图可视化，输出完整实验报告</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">02</span>量化结果</h2>
+    <div class="stats">
+      <div class="stat"><div class="v">0.68</div><div class="k">最佳 ACC</div></div>
+      <div class="stat"><div class="v">0.73</div><div class="k">最佳 NMI</div></div>
+    </div>
+    <p class="lead" style="margin-top:18px">实验覆盖的对比维度：</p>
+    <div class="tags">
+      <span class="tag">融合：拼接</span>
+      <span class="tag">融合：平均池化</span>
+      <span class="tag">聚类：K-means</span>
+      <span class="tag">聚类：谱聚类</span>
+      <span class="tag">多 K 值扫描</span>
+      <span class="tag">标签：GPT / TF-IDF</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">03</span>方法链路</h2>
+    <p class="lead">跨模态语义聚类流程（架构示意）：</p>
+    <div class="flow">
+      <span class="node"><b>图文对</b><br/>Flickr30k</span><span class="arrow">→</span>
+      <span class="node"><b>CLIP 特征提取</b><br/>统一语义空间</span><span class="arrow">→</span>
+      <span class="node"><b>融合</b><br/>拼接 / 平均池化</span><span class="arrow">→</span>
+      <span class="node"><b>聚类</b><br/>K-means / 谱聚类</span><span class="arrow">→</span>
+      <span class="node"><b>概念标签</b><br/>GPT / TF-IDF</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p><a href="../index.html">← 返回主页</a>　·　黄子健 · 智能科学与技术 · 2027 届</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

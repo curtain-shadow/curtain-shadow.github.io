@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>恶意网络流量检测 · 黄子健</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a class="back" href="../index.html">← 返回主页</a>
+    <div class="links">
+      <span class="hide-sm" style="color:var(--text-muted);font-size:14px">恶意流量检测</span>
+      <button id="theme-toggle" aria-label="切换深浅色" title="切换深浅色">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumb">项目 / 机器学习</div>
+    <h1>基于机器学习的恶意网络流量检测</h1>
+    <span class="badge">机器学习 / 网络安全</span>
+    <p class="desc">基于 UNSW-NB15 数据集的网络流量恶意行为二分类检测，含数据加载、特征工程、模型训练、Web 部署的完整 ML 流水线。</p>
+    <div class="stack">
+      <span class="t">RandomForest</span><span class="t">XGBoost</span><span class="t">scikit-learn</span>
+      <span class="t">特征工程</span><span class="t">交叉验证</span><span class="t">Gradio 部署</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">01</span>核心亮点</h2>
+    <ul class="highlights">
+      <li>175K 样本级流量数据的特征工程（协议编码、统计特征构造）</li>
+      <li>随机森林 vs XGBoost 对比 + 交叉验证（accuracy / precision / recall / F1 多指标）</li>
+      <li>模型持久化（joblib）+ Gradio Web 界面实现单条流量实时预测</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">02</span>量化结果</h2>
+    <div class="stats">
+      <div class="stat"><div class="v">92<span class="u">%</span></div><div class="k">Accuracy（XGBoost）</div></div>
+      <div class="stat"><div class="v">0.90</div><div class="k">F1（XGBoost）</div></div>
+      <div class="stat"><div class="v">175<span class="u">K</span></div><div class="k">流量样本</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">03</span>系统链路</h2>
+    <p class="lead">完整 ML 流水线（架构示意）：</p>
+    <div class="flow">
+      <span class="node"><b>UNSW-NB15</b><br/>流量数据集</span><span class="arrow">→</span>
+      <span class="node"><b>特征工程</b><br/>协议编码 · 统计特征</span><span class="arrow">→</span>
+      <span class="node"><b>训练</b><br/>RF vs XGBoost · 交叉验证</span><span class="arrow">→</span>
+      <span class="node"><b>评估</b><br/>acc / P / R / F1</span><span class="arrow">→</span>
+      <span class="node"><b>Gradio 部署</b><br/>单条流量实时预测</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p><a href="../index.html">← 返回主页</a>　·　黄子健 · 智能科学与技术 · 2027 届</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

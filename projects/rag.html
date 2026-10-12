@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>深度 RAG 知识库问答系统 · 黄子健</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a class="back" href="../index.html">← 返回主页</a>
+    <div class="links">
+      <span class="hide-sm" style="color:var(--text-muted);font-size:14px">深度 RAG</span>
+      <button id="theme-toggle" aria-label="切换深浅色" title="切换深浅色">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumb">项目 / 大模型应用</div>
+    <h1>深度 RAG 知识库问答系统</h1>
+    <span class="badge">大模型 / 检索增强生成</span>
+    <p class="desc">对标工业级的检索增强生成系统，走通「多格式解析 → 父子分块 → 混合检索 → 重排 → 带引用生成 → 流式服务」完整链路，解决检索不准、上下文不完整、大模型幻觉三大痛点。</p>
+    <div class="stack">
+      <span class="t">Python</span><span class="t">FastAPI + SSE</span><span class="t">BGE-M3</span>
+      <span class="t">自实现 BM25</span><span class="t">RRF</span><span class="t">Cross-Encoder 重排</span>
+      <span class="t">FAISS / Milvus</span><span class="t">父子分块</span><span class="t">DeepSeek</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">01</span>核心亮点</h2>
+    <ul class="highlights">
+      <li>自实现 BM25 稀疏检索（jieba 分词 + 倒排索引）+ BGE-M3 稠密向量双路召回，RRF 倒数排名融合，兼顾语义泛化与精确关键词匹配</li>
+      <li>父子分块（子块 512 检索 / 父块 1536 喂 LLM）+ Cross-Encoder 精排 top-k，兼顾「检得准」与「答得全」</li>
+      <li>稠密后端 faiss → Milvus 可切换，小语料下两后端 Top5 命中与余弦分数逐位一致、无召回损失</li>
+      <li>FastAPI + SSE 流式问答 + 全链路耗时 trace；LLM 带引用生成（句末标 [1][2]，资料不足不编造）</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">02</span>量化结果</h2>
+    <p class="lead">自建 20 条语义级 ground truth 测试集，Hit Rate@k 评测；消融实验量化各模块收益。</p>
+    <div class="stats">
+      <div class="stat"><div class="v">80<span class="u">%</span></div><div class="k">Hit@1（混合+重排）</div></div>
+      <div class="stat"><div class="v">100<span class="u">%</span></div><div class="k">Hit@3（混合+重排）</div></div>
+      <div class="stat"><div class="v">~100<span class="u">ms</span></div><div class="k">检索耗时</div></div>
+      <div class="stat"><div class="v">~900<span class="u">ms</span></div><div class="k">重排耗时</div></div>
+    </div>
+
+    <figure class="viz">
+      <figcaption>消融实验 —— 混合检索与重排对 Hit Rate 的贡献（Hit@k）</figcaption>
+      <svg viewBox="0 0 640 360" role="img" aria-label="RAG 消融实验 Hit Rate 柱状图">
+        <line x1="48" y1="320" x2="632" y2="320" stroke="var(--axis)" stroke-width="1.5"/>
+        <line x1="48" y1="249" x2="632" y2="249" stroke="var(--grid)"/>
+        <line x1="48" y1="178" x2="632" y2="178" stroke="var(--grid)"/>
+        <line x1="48" y1="107" x2="632" y2="107" stroke="var(--grid)"/>
+        <line x1="48" y1="36" x2="632" y2="36" stroke="var(--grid)"/>
+        <text x="40" y="324" text-anchor="end" font-size="12" fill="var(--muted)">0</text>
+        <text x="40" y="253" text-anchor="end" font-size="12" fill="var(--muted)">25</text>
+        <text x="40" y="182" text-anchor="end" font-size="12" fill="var(--muted)">50</text>
+        <text x="40" y="111" text-anchor="end" font-size="12" fill="var(--muted)">75</text>
+        <text x="40" y="40" text-anchor="end" font-size="12" fill="var(--muted)">100</text>
+
+        <!-- full：Hit@1 80 / Hit@3 100 -->
+        <rect x="93"  y="92.8"  width="50" height="227.2" rx="4" fill="var(--s1)"><title>full · Hit@1 = 80%</title></rect>
+        <rect x="157" y="36"    width="50" height="284"   rx="4" fill="var(--s2)"><title>full · Hit@3 = 100%</title></rect>
+        <text x="118" y="84.8" text-anchor="middle" font-size="12" fill="var(--ink)">80</text>
+        <text x="182" y="28"   text-anchor="middle" font-size="12" fill="var(--ink)">100</text>
+        <!-- dense-only：Hit@1 70 / Hit@3 95 -->
+        <rect x="263" y="121.2" width="50" height="198.8" rx="4" fill="var(--s1)"><title>dense-only · Hit@1 = 70%</title></rect>
+        <rect x="327" y="50.2"  width="50" height="269.8" rx="4" fill="var(--s2)"><title>dense-only · Hit@3 = 95%</title></rect>
+        <text x="288" y="113.2" text-anchor="middle" font-size="12" fill="var(--ink)">70</text>
+        <text x="352" y="42.2"  text-anchor="middle" font-size="12" fill="var(--ink)">95</text>
+        <!-- no-rerank：Hit@1 65 / Hit@3 100 -->
+        <rect x="433" y="135.4" width="50" height="184.6" rx="4" fill="var(--s1)"><title>no-rerank · Hit@1 = 65%</title></rect>
+        <rect x="497" y="36"    width="50" height="284"   rx="4" fill="var(--s2)"><title>no-rerank · Hit@3 = 100%</title></rect>
+        <text x="458" y="127.4" text-anchor="middle" font-size="12" fill="var(--ink)">65</text>
+        <text x="522" y="28"    text-anchor="middle" font-size="12" fill="var(--ink)">100</text>
+
+        <text x="118" y="340" text-anchor="middle" font-size="12.5" fill="var(--ink-2)">full</text>
+        <text x="288" y="340" text-anchor="middle" font-size="12.5" fill="var(--ink-2)">dense-only</text>
+        <text x="458" y="340" text-anchor="middle" font-size="12.5" fill="var(--ink-2)">no-rerank</text>
+      </svg>
+      <div class="legend">
+        <span class="li"><span class="sw" style="background:var(--s1)"></span>Hit@1</span>
+        <span class="li"><span class="sw" style="background:var(--s2)"></span>Hit@3</span>
+      </div>
+    </figure>
+
+    <table class="tbl">
+      <thead><tr><th>配置</th><th>Hit@1</th><th>Hit@3</th><th>结论</th></tr></thead>
+      <tbody>
+        <tr><td>full（混合 + 重排）</td><td>80%</td><td>100%</td><td>基准</td></tr>
+        <tr><td>dense-only（去 BM25）</td><td>70%</td><td>95%</td><td>BM25 补召回 Hit@3 +5pp</td></tr>
+        <tr><td>no-rerank（去重排）</td><td>65%</td><td>100%</td><td>重排提精度 Hit@1 +15pp</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">03</span>系统链路</h2>
+    <p class="lead">完整检索增强链路（架构示意）：</p>
+    <div class="flow">
+      <span class="node"><b>多格式解析</b></span><span class="arrow">→</span>
+      <span class="node"><b>父子分块</b></span><span class="arrow">→</span>
+      <span class="node"><b>BGE-M3 向量化</b><br/>+ BM25 索引</span><span class="arrow">→</span>
+      <span class="node"><b>混合检索</b><br/>RRF 融合</span><span class="arrow">→</span>
+      <span class="node"><b>Cross-Encoder 重排</b></span><span class="arrow">→</span>
+      <span class="node"><b>LLM 带引用生成</b><br/>SSE 流式</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p><a href="../index.html">← 返回主页</a>　·　黄子健 · 智能科学与技术 · 2027 届</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

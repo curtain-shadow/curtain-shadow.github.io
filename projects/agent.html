@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>智能客服多智能体 Agent · 黄子健</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a class="back" href="../index.html">← 返回主页</a>
+    <div class="links">
+      <span class="hide-sm" style="color:var(--text-muted);font-size:14px">智能客服 Agent</span>
+      <button id="theme-toggle" aria-label="切换深浅色" title="切换深浅色">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumb">项目 / 大模型应用 · 进行中</div>
+    <h1>智能客服多智能体 Agent</h1>
+    <span class="badge">大模型 / 多智能体（进行中）</span>
+    <p class="desc">LangGraph 编排的客服多智能体系统：意图路由 → 工具调用（Function Calling）→ 生成回答。复用深度 RAG 的 LLM / 检索 / FastAPI 基础设施（约 60–70%），增量实现多智能体编排、多模型降级、会话持久化与鉴权。</p>
+    <div class="stack">
+      <span class="t">LangGraph</span><span class="t">Function Calling</span><span class="t">FastAPI + SSE</span>
+      <span class="t">多模型降级</span><span class="t">JWT + bcrypt</span><span class="t">MySQL + SQLAlchemy</span>
+      <span class="t">Vue3 + TS</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">01</span>核心亮点</h2>
+    <ul class="highlights">
+      <li>LangGraph 多节点有状态工作流：router（意图路由）→ tools（工具调用）→ generate（生成回答）</li>
+      <li>Function Calling 工具层 + 注册表：知识库检索 / 订单查询 / 转人工，LLM 自主选择并执行</li>
+      <li>多模型切换 + 故障转移（DeepSeek 主 / GLM 降级），主模型故障链路不中断</li>
+      <li>复用深度 RAG 基础设施约 60–70%，体现工程复用与增量交付能力</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">02</span>工作流</h2>
+    <p class="lead">核心链路（架构示意）：</p>
+    <div class="flow">
+      <span class="node"><b>用户消息</b><br/>Vue3 前端 · JWT + SSE</span><span class="arrow">→</span>
+      <span class="node"><b>router</b><br/>LLM 意图路由</span><span class="arrow">→</span>
+      <span class="node"><b>tools</b><br/>Function Calling 工具执行</span><span class="arrow">→</span>
+      <span class="node"><b>generate</b><br/>综合生成回答</span>
+    </div>
+    <p class="lead" style="margin-top:20px">工具层（三路）：</p>
+    <div class="tags">
+      <span class="tag">kb_search · 知识库检索（复用 RAG）</span>
+      <span class="tag">order_query · 订单查询</span>
+      <span class="tag">handoff · 转人工工单</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">03</span>当前状态</h2>
+    <ul class="highlights">
+      <li>✅ 已通：LangGraph 工作流（router / tools / generate）、Function Calling 工具注册表、多模型故障转移、JWT 鉴权链路、FastAPI + SSE 骨架、Vue3 前端骨架</li>
+      <li>🟡 迭代中：订单查询 / 转人工当前为 mock 返回，会话存储用内存实现，SSE 非逐 token 真流式</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p><a href="../index.html">← 返回主页</a>　·　黄子健 · 智能科学与技术 · 2027 届</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

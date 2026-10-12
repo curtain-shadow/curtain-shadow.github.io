@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>MNIST 手写数字识别 · 黄子健</title>
+<link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+  <div class="inner">
+    <a class="back" href="../index.html">← 返回主页</a>
+    <div class="links">
+      <span class="hide-sm" style="color:var(--text-muted);font-size:14px">MNIST 识别</span>
+      <button id="theme-toggle" aria-label="切换深浅色" title="切换深浅色">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumb">项目 / 深度学习</div>
+    <h1>MNIST 手写数字识别</h1>
+    <span class="badge">深度学习</span>
+    <p class="desc">MLP 实现 MNIST 手写数字识别，含手动实现反向传播以深入理解梯度，混淆矩阵评估。</p>
+    <div class="stack">
+      <span class="t">PyTorch</span><span class="t">MLP</span><span class="t">反向传播</span><span class="t">混淆矩阵</span>
+      <span class="t">matplotlib / seaborn</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">01</span>核心亮点</h2>
+    <ul class="highlights">
+      <li>手动实现反向传播，深入理解梯度计算</li>
+      <li>混淆矩阵 + 可视化评估分类效果</li>
+      <li>数据预处理 → 训练 → 评估完整流程</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">02</span>量化结果</h2>
+    <div class="stats">
+      <div class="stat"><div class="v" style="font-size:44px">≈ 98<span class="u">%</span></div><div class="k">测试集准确率</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="num">03</span>网络结构</h2>
+    <p class="lead">MLP 多层感知机结构（示意）：</p>
+    <div class="flow">
+      <span class="node"><b>输入层</b><br/>784（28×28 像素）</span><span class="arrow">→</span>
+      <span class="node"><b>全连接隐藏层</b><br/>ReLU 激活</span><span class="arrow">→</span>
+      <span class="node"><b>输出层</b><br/>Softmax · 10 类</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p><a href="../index.html">← 返回主页</a>　·　黄子健 · 智能科学与技术 · 2027 届</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>
