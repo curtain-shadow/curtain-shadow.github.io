@@ -25,7 +25,7 @@
     <p class="desc">基于 UNSW-NB15 数据集的网络流量恶意行为二分类检测，含数据加载、特征工程、模型训练、Web 部署的完整 ML 流水线。</p>
     <div class="stack">
       <span class="t">RandomForest</span><span class="t">XGBoost</span><span class="t">scikit-learn</span>
-      <span class="t">特征工程</span><span class="t">交叉验证</span><span class="t">Gradio 部署</span>
+      <span class="t">特征工程</span><span class="t">分层切分</span><span class="t">Gradio 部署</span>
     </div>
     <p class="gh"><a href="https://github.com/curtain-shadow/traffic-detection" target="_blank" rel="noopener">GitHub 仓库 ↗</a></p>
   </div>
@@ -38,9 +38,9 @@
   <div class="wrap">
     <h2><span class="num">01</span>核心亮点</h2>
     <ul class="highlights">
-      <li>175K 样本级流量数据的特征工程（协议编码、统计特征构造）</li>
-      <li>随机森林 vs XGBoost 对比 + 交叉验证（accuracy / precision / recall / F1 多指标）</li>
-      <li>模型持久化（joblib）+ Gradio Web 界面实现单条流量实时预测</li>
+      <li>82K 条 UNSW-NB15 真实流量的特征工程（42 维特征：Label 编码 + 标准化）</li>
+      <li>随机森林 vs XGBoost 对比，按 F1 自动选优（accuracy / precision / recall / F1 多指标，分层 80/20 切分）</li>
+      <li>模型持久化（joblib）+ Gradio Web 界面实现单条 / 批量流量实时预测</li>
     </ul>
   </div>
 </section>
@@ -49,9 +49,9 @@
   <div class="wrap">
     <h2><span class="num">02</span>量化结果</h2>
     <div class="stats">
-      <div class="stat"><div class="v">92<span class="u">%</span></div><div class="k">Accuracy（XGBoost）</div></div>
-      <div class="stat"><div class="v">0.90</div><div class="k">F1（XGBoost）</div></div>
-      <div class="stat"><div class="v">175<span class="u">K</span></div><div class="k">流量样本</div></div>
+      <div class="stat"><div class="v">97.4<span class="u">%</span></div><div class="k">Accuracy（XGBoost）</div></div>
+      <div class="stat"><div class="v">0.976</div><div class="k">F1（XGBoost）</div></div>
+      <div class="stat"><div class="v">82<span class="u">K</span></div><div class="k">流量样本</div></div>
     </div>
   </div>
 </section>
@@ -62,10 +62,10 @@
     <p class="lead">完整 ML 流水线（架构示意）：</p>
     <div class="flow">
       <span class="node"><b>UNSW-NB15</b><br/>流量数据集</span><span class="arrow">→</span>
-      <span class="node"><b>特征工程</b><br/>协议编码 · 统计特征</span><span class="arrow">→</span>
-      <span class="node"><b>训练</b><br/>RF vs XGBoost · 交叉验证</span><span class="arrow">→</span>
+      <span class="node"><b>特征工程</b><br/>Label 编码 · 标准化</span><span class="arrow">→</span>
+      <span class="node"><b>训练</b><br/>RF vs XGBoost · 分层切分</span><span class="arrow">→</span>
       <span class="node"><b>评估</b><br/>acc / P / R / F1</span><span class="arrow">→</span>
-      <span class="node"><b>Gradio 部署</b><br/>单条流量实时预测</span>
+      <span class="node"><b>Gradio 部署</b><br/>单条 / 批量实时预测</span>
     </div>
   </div>
 </section>
